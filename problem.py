@@ -10,7 +10,7 @@ _ignore_column_names = ["postalCode", "name" ]
 #_prediction_label_names = [0, 1]
 
 Predictions = rw.prediction_types.make_regression(
-    label_names=_target_column_names)
+    label_names=[_target_column_names])
 # An object implementing the workflow
 workflow = rw.workflows.FeatureExtractorRegressor()
 
