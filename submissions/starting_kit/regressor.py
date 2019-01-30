@@ -17,4 +17,4 @@ class Regressor(BaseEstimator):
 
 
     def predict(self, X):
-        return self.reg.predict(X)
+        return self.reg.predict(X)[:, np.newaxis]  # pour le passer en (machin, 1 ) mais ça change rien
