@@ -7,7 +7,7 @@ import numpy as np
 
 problem_title = 'Cars price'
 _target_column_names = 'price'
-_ignore_column_names = ["postalCode" ]
+_ignore_column_names = ["postalCode", "offerType" ]
 #_prediction_label_names = [0, 1]
 
 Predictions = rw.prediction_types.make_regression(
@@ -48,6 +48,7 @@ def _read_data(path, f_name):
         ]
     y_array = data[_target_column_names].values
     X_df = data.drop([_target_column_names] + _ignore_column_names, axis=1)
+    X_df = X_df.reset_index().drop(['index' ], axis=1)
     return clean_and_transform(X_df), y_array
 
 
